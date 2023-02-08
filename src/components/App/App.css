@@ -1,0 +1,7 @@
+.App {
+    text-align: center;
+}
+
+.minHeight {
+    min-height: calc(100vh - 332px);
+}
