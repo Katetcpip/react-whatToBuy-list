@@ -3,6 +3,7 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 import { useState } from 'react';
 import Card from 'components/Card';
+import CardForm from 'components/CardForm';
 
 function App() {
 
@@ -52,8 +53,7 @@ const [buy, setBuy] = useState([
 
   const changeAdd = (id:number):any =>{
     let arr2 = JSON.parse(JSON.stringify(buy))
-
-    let indexCard:any = arr2.find(el => el.id === id);
+    let indexCard:any = arr2.find((el:any)  => el.id === id);
 
     if (indexCard.isadd === "ADD"){
       indexCard.isadd = "ADDED";
@@ -62,15 +62,24 @@ const [buy, setBuy] = useState([
     setBuy(arr2)
   }  
 
+  const addNewItem = (item:any) =>{
+    setBuy([...buy, item])
+  }
+
   return (
     <div>
       <Header />
       <div className='minHeight mx-auto'>
-      {buy.map((item) =>{
-        return(
-          <Card key={item.id} item={item} changeAdd={changeAdd} deleteCard={deleteCard}/>
-        )
-      })}
+        <CardForm addNewItem={addNewItem}/>
+
+        {buy.length === 0 && (
+          <div className='mt-20 text-center text-7xl text-gray-400 font-thin'>No items to buy</div>
+        )}
+         {buy.length > 0 && buy.map((item) =>{
+            return(
+              <Card key={item.id} item={item} changeAdd={changeAdd} deleteCard={deleteCard}/>
+           )
+         })}
       </div>
       <Footer />
     </div>
