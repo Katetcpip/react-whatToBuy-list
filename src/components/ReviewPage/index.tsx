@@ -47,7 +47,7 @@ const ReviewPage = () =>{
             <div className="input-box message-box">
               <textarea placeholder="Your thoughts"></textarea>
             </div>
-            <img className='h-28 w-28 -mt-6 -mb-10 -mr-4' src='https://pluspng.com/img-png/wet-cat-png-cutout-2000.png'></img>
+            <img  alt="" className='h-28 w-28 -mt-6 -mb-10 -mr-4' src='https://pluspng.com/img-png/wet-cat-png-cutout-2000.png'></img>
             <div className="button">
               <input type="button" value="Send" />
             </div>
