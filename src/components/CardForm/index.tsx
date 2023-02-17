@@ -1,15 +1,21 @@
 import { useState } from "react";
+import { type Product } from "components/Items";
 
-const CardForm = ({addNewItem}) => {
+type Props = {
+ addNewItem : (item: Product) => void;
+}
+
+
+const CardForm = ({addNewItem} : Props) => {
 
     const [newItems, setItems] = useState("");
-
-    const handleClick = (event:any) => {
+    const handleClick = (event:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         event.preventDefault();
        const item ={
             img: "https://winx-fan.ru/800/600/https/static-sl.insales.ru/files/1/4004/12119972/original/img_61696.png",
             name: newItems,
-            isadd: "ADD"
+            isadd: false,
+            id: 100
         }  
         addNewItem(item)
         setItems(" ")

@@ -1,4 +1,11 @@
-function Button(props:any){
+import { Product } from "components/Items"
+
+type Props = {
+    deleteCard: (id: number) => void,
+    item: Product
+}
+
+function Button(props:Props){
     const {deleteCard, item}=props
 
     return(
